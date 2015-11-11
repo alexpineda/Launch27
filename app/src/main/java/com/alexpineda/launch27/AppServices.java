@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
 public class AppServices {
 
     public final static String APP_PREFS_NAME = "LAUNCH27";
-
+    private MainActivity _activity;
     public final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
 
@@ -45,6 +45,10 @@ public class AppServices {
     private static String LAUNCH27_API_KEY = "";
 
     private static OkHttpClient httpClient;
+
+    public AppServices(MainActivity activity){
+        _activity = activity;
+    }
 
     public boolean Login(String email, String password){
         httpClient = new OkHttpClient();
@@ -164,6 +168,7 @@ public class AppServices {
         protected void onPostExecute(List<ServiceDtoResponse> feed) {
             // TODO: check this.exception
             // TODO: do something with the feed
+            _activity.getServicesCallback(feed);
         }
     }
 

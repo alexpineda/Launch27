@@ -14,7 +14,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.alexpineda.launch27.WebServices.Dto.ServiceDtoResponse;
+import com.alexpineda.launch27.WebServices.Dto.SpotDtoResponse;
+
 import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -82,7 +86,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        AppServices appServices = new AppServices();
+        AppServices appServices = new AppServices(this);
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
@@ -104,5 +108,17 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void getServicesCallback(List<ServiceDtoResponse> feed){
+
+    }
+
+    public void getStatesCallback(List<String> feed){
+
+    }
+
+    public void getSpotsCallback(List<SpotDtoResponse> feed){
+
     }
 }
