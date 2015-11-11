@@ -1,4 +1,4 @@
-package com.example.alexpineda.launch27;
+package com.alexpineda.launch27;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
